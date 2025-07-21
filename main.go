@@ -9,7 +9,7 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-var Client = make(map[*websocket.conn]*models.User)
+var Client = make(map[*websocket.Conn]*models.User)
 var upgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool { return true },
 }
