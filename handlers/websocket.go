@@ -26,7 +26,7 @@ func WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 			break
 		}
 		fmt.Printf("Recieved %s\n", &msg)
-		conn.WriteMessage(websocket.TextMessage, []byte("Echo "+striwng(msg)))
+		conn.WriteMessage(websocket.TextMessage, []byte("Echo "+string(msg)))
 	}
 
 }
