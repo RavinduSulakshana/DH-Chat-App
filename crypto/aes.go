@@ -31,7 +31,7 @@ func Encrypt(plaintext []byte, key []byte) ([]byte, error) {
 
 // decrypt ciphertext using aes counter mode
 func Decrypt(ciphertext []byte, key []byte) ([]byte, error) {
-	if len(ciphertext) < len(aes.BlockSize) {
+	if len(ciphertext) < aes.BlockSize {
 		return nil, errors.New("ciphertext is very short")
 	}
 	block, err := aes.NewCipher(key)
@@ -41,7 +41,7 @@ func Decrypt(ciphertext []byte, key []byte) ([]byte, error) {
 
 	//extract IV and encrypted message from ciphertext
 	iv := ciphertext[:aes.BlockSize]
-	ciphertext := ciphertext[aes.BlockSize:]
+	ciphertext = ciphertext[aes.BlockSize:]
 
 	//decrypt using CTR mode
 	stream := cipher.NewCTR(block, iv)
