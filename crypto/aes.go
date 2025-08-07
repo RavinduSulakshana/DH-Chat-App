@@ -45,7 +45,7 @@ func Decrypt(ciphertext []byte, key []byte) ([]byte, error) {
 
 	//decrypt using CTR mode
 	stream := cipher.NewCTR(block, iv)
-	plaintext := make([]byte, len(ciphertext))
+	plaintext := make([]byte, 0, len(ciphertext))
 	stream.XORKeyStream(plaintext, ciphertext)
 	return plaintext, nil
 }

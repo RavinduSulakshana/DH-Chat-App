@@ -8,7 +8,7 @@ import (
 
 type User struct {
 	ID            string              `json:"id"`
-	UserName      string              `json:"username"`
+	Username      string              `json:"username"`
 	Conn          *websocket.Conn     `json:"-"`
 	PublicKey     *big.Int            `json:"public_key,omitempty"`
 	PrivateKey    *big.Int            `json:"-"`
