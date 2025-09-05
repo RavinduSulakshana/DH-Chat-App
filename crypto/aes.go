@@ -24,7 +24,7 @@ func Encrypt(plaintext []byte, key []byte) ([]byte, error) {
 	}
 
 	stream := cipher.NewCTR(block, iv)
-	stream.XORKeyStream(ciphertext[aes.BlockSize:], plaintext)
+	stream.aXORKeyStream(ciphertext[aes.BlockSize:], plaintext)
 
 	return ciphertext, nil
 }
